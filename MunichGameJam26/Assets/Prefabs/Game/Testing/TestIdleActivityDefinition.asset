@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityDefinition
   ActivityName: Test Activity
   BaseRessourceGeneration: 3
-  BaseActivityTime: 0.5
+  BaseActivityTime: 1
   FinalActivityTime: 0.5
   Milestones:
   - StartUpgradeCost: 10
     EndUpgradeCost: 10
     RessourceGenerationBoost: 0.1
-    MilstoneTime: 0.5
+    MilstoneTime: 1
     UpgradeSteps: 1
   - StartUpgradeCost: 25
     EndUpgradeCost: 200
     RessourceGenerationBoost: 0.15
-    MilstoneTime: 0.25
+    MilstoneTime: 0.5
     UpgradeSteps: 10
   ActivityIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

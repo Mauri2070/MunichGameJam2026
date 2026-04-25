@@ -133,5 +133,35 @@ namespace MGJ.Idle
                 _ressourceCollectionAvailable = true;
             }
         }
+
+        public void ChangeMultiplyerBoostStatus(bool applyBoost, float boostMultiplyer)
+        {
+            if (applyBoost)
+            {
+                _currentActivityOutput *= boostMultiplyer;
+            }
+            else
+            {
+                _currentActivityOutput /= boostMultiplyer;
+            }
+
+            OnActivityStateChanged?.Invoke();
+        }
+
+        public float TimeWarpAndGetEarnings(float time)
+        {
+            if (!_timer.Loop)
+            {
+                _timer.TickTimer(Mathf.Min(time, _timer.Time - _timer.CurrentTime) - Mathf.Epsilon);
+                return 0f;
+            }
+
+            int wholeTimerCompletions = Mathf.FloorToInt(time / _timer.Time);
+            float earnings = wholeTimerCompletions * _currentActivityOutput;
+
+            _timer.TickTimer(time - wholeTimerCompletions * _timer.Time);
+
+            return earnings;
+        }
     }
 }

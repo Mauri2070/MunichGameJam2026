@@ -31,7 +31,6 @@ namespace MGJ.Timer
         {
             Time = -1;
             CurrentTime = 0;
-
         }
 
         public void TickTimer(float deltaTime)
@@ -74,6 +73,11 @@ namespace MGJ.Timer
         public void StopTimer()
         {
             TimerManager.Instance.UnregisterTimer(this);
+        }
+
+        public void ResetCurrentTime()
+        {
+            CurrentTime = 0.0f;
         }
     }
 }
