@@ -9,11 +9,14 @@ public class PlakatHandler : MinigameHandler
     [Header("Scrolling")]
     RectTransform rectTransform;
     [SerializeField] Vector3 origin;
-    [SerializeField] private float scrollSpeed = 0.5f;
-    private bool isScrolling = false;
+    [SerializeField] private float maxScrollSpeed = 4.0f;
+    private float scrollSpeed = 0;
+    [SerializeField] private float scrollSpeedStartDuration = 1.0f;
+    private float scrollSpeedAcceleration; 
+    public bool isScrolling = false;
 
     [Header("Prefabs")]
-    [SerializeField] Button obstacle;
+    [SerializeField] Obstacle obstacle;
     [SerializeField] GameObject placatedObstacle;
     [SerializeField] Plakat plakatPref;
 
@@ -38,24 +41,27 @@ public class PlakatHandler : MinigameHandler
 
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
 
         if (isScrolling)
             ScrollBackground();
+
+        scrollSpeedAcceleration = maxScrollSpeed / 60 * scrollSpeedStartDuration;
 
     }
 
     protected override void StartMinigame()
     {
 
-        if(placatedObstacleInstance != null)
+        if (placatedObstacleInstance != null)
             Destroy(placatedObstacleInstance.transform);
 
         foreach (Transform child in plakateOrigin.transform)
             Destroy(child.gameObject);
 
         rectTransform.position = origin;
+        scrollSpeed = 0;
 
         base.StartMinigame();
 
@@ -69,7 +75,7 @@ public class PlakatHandler : MinigameHandler
 
         SpawnPlakate(plakateNR);
 
-        MoveObstacle();
+        obstacle.SetObstacle();
 
         StartCoroutine(WaitThenStartScrolling());
 
@@ -109,11 +115,11 @@ public class PlakatHandler : MinigameHandler
 
         Debug.Log("Average distance: " + averageDistance);
 
-        float offsetX = ((averageDistance * i) + (averageDistance / 2)) - (boundWidth/2);
-        float randomOffset = averageDistance * 0.5f;
+        float offsetX = ((averageDistance * i) + (averageDistance / 2)) - (boundWidth / 2);
+        float randomOffset = averageDistance * 0.35f;
         offsetX = offsetX + Random.Range(-randomOffset, randomOffset);
 
-        float offsetY = Random.Range(-boundHeight/2, boundHeight/2);
+        float offsetY = Random.Range(-boundHeight / 2, boundHeight / 2);
 
         Debug.Log("Offset x: " + offsetX + " offset y: " + offsetY);
 
@@ -121,19 +127,14 @@ public class PlakatHandler : MinigameHandler
 
     }
 
-    private void MoveObstacle()
-    {
-
-        float x = Random.Range(1800, 120);
-        Debug.Log("Obstacle x = " + x);
-        RectTransform obstacleRect = obstacle.GetComponent<RectTransform>();
-
-        obstacleRect.position = new Vector3(x, obstacleRect.position.y, 0);
-
-    }
+    private float progress;
+    private float acceleration = 0;
 
     private void ScrollBackground()
     {
+
+        if (scrollSpeed < maxScrollSpeed) scrollSpeed += scrollSpeedAcceleration;
+        if (scrollSpeed > maxScrollSpeed) scrollSpeed = maxScrollSpeed;
 
         if (rectTransform.position.x > 0)
         {
@@ -142,26 +143,27 @@ public class PlakatHandler : MinigameHandler
 
         }
 
-        if (rectTransform.position.x < 0)
-            rectTransform.position = new Vector3(0, rectTransform.position.y, rectTransform.position.z);
-
-        if (rectTransform.position.x == 0)
+        if (rectTransform.position.x <= 0)
         {
 
-            CheckPlakate();
+            rectTransform.position = new Vector3(0, rectTransform.position.y, rectTransform.position.z);
             isScrolling = false;
+            StartCoroutine(WaitThenCheckResult());
 
         }
 
+
     }
 
-    private void CheckPlakate()
+    private void CheckResult()
     {
 
         foreach (Plakat plakat in enemyPlakate)
         {
 
-            if (!plakat.isGlued)
+            plakat.button.enabled = false;
+
+            if (!plakat.isGlued || obstacle.isGlued)
             {
 
                 OpenFailedScreen();
@@ -172,6 +174,8 @@ public class PlakatHandler : MinigameHandler
 
         }
 
+        obstacle.button.enabled = false;
+
         OpenVictoryScreen();
 
     }
@@ -179,8 +183,25 @@ public class PlakatHandler : MinigameHandler
     private IEnumerator WaitThenStartScrolling()
     {
 
-        yield return new WaitForSeconds(2);
+        foreach (Plakat plakat in enemyPlakate)
+        {
+
+            plakat.button.enabled = true;
+
+        }
+
+        obstacle.button.enabled = true;
+
+        yield return new WaitForSeconds(0.0f);
         isScrolling = true;
+
+    }
+
+    private IEnumerator WaitThenCheckResult()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        CheckResult();
 
     }
 

@@ -96,14 +96,14 @@ public class ElectionBill : MonoBehaviour
         {
 
             int imageNR = Random.Range(0, ourBills.Count);
-            billImage.color = new Color(ourBills[imageNR].color.r, ourBills[imageNR].color.g, ourBills[imageNR].color.b);
+            billImage.sprite = ourBills[imageNR].sprite;
 
         }
         else
         {
 
             int imageNR = Random.Range(0, otherBills.Count);
-            billImage.color = new Color(otherBills[imageNR].color.r, otherBills[imageNR].color.g, otherBills[imageNR].color.b);
+            billImage.sprite = otherBills[imageNR].sprite;
 
         }
 

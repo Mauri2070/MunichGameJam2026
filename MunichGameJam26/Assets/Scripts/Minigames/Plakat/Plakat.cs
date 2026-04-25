@@ -5,7 +5,7 @@ public class Plakat : MonoBehaviour
 {
 
     [Header("Button")]
-    [SerializeField] Button button;
+    [SerializeField] public Button button;
 
     [Header("Plakat")]
     [SerializeField] GameObject gluedPlakat;
