@@ -11,6 +11,7 @@ public class MinigameHandler : MonoBehaviour
     [SerializeField] Button minigameOpener;
     [SerializeField] MinigameHandler activeMinigame;
     [SerializeField] GameObject fraudBackground;
+    [SerializeField] GameObject plakatBackground;
 
     [Header("Result")]
     public bool success = false;
