@@ -8,10 +8,13 @@ public class MinigameHandler : MonoBehaviour
 
     [Header("Minigames")]
     [SerializeField] Button minigameOpener;
+    [SerializeField] MinigameHandler activeMinigame;
     [SerializeField] GameObject fraudBackground;
 
     [Header("Result")]
     public bool success = false;
+    [SerializeField] private GameObject failedScreen;
+    [SerializeField] private GameObject victoryScreen;
 
     public void OpenMinigame(GameObject minigameBackground)
     {
@@ -21,6 +24,7 @@ public class MinigameHandler : MonoBehaviour
         Debug.Log("Minigame is " + minigameBackground.name);
 
         MinigameHandler handler = minigameBackground.GetComponent<MinigameHandler>();
+        activeMinigame = handler;
 
         handler.StartMinigame();
 
@@ -34,10 +38,31 @@ public class MinigameHandler : MonoBehaviour
 
     }
 
-    public void CloseMinigame(GameObject minigameBackground)
+    public void CloseMinigame()
     {
 
+        activeMinigame.EndMinigame();
 
+        activeMinigame.gameObject.SetActive(false);
+        activeMinigame = null;
+
+        failedScreen.SetActive(false);
+        victoryScreen.SetActive(false);
+
+    }
+
+    public void OpenFailedScreen()
+    {
+
+        failedScreen.SetActive(true);
+
+    }
+
+    public void OpenVictoryScreen()
+    {
+
+        success = true;
+        victoryScreen.SetActive(true);
 
     }
 

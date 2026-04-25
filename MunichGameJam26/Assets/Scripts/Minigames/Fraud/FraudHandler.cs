@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class FraudHandler : MinigameHandler
 {
@@ -12,6 +14,8 @@ public class FraudHandler : MinigameHandler
     [SerializeField] private GameObject billOrigin;
     [SerializeField] private ElectionBill billPrefab;
     [SerializeField] private int distanceToPrevious = 5;
+    public int billsDone = 0;
+    private int activeBillNR = 4;
 
     protected override void StartMinigame()
     {
@@ -20,6 +24,8 @@ public class FraudHandler : MinigameHandler
 
         foreach (Transform child in billOrigin.transform)
             GameObject.Destroy(child.gameObject);
+        billsDone = 0;
+        activeBillNR = 4;
 
         Debug.Log("Create Bill list");
         electionBills = new ElectionBill[4];
@@ -42,16 +48,45 @@ public class FraudHandler : MinigameHandler
 
             billInstance.CreateBill();
 
-        }
+            electionBills[i] = billInstance;
+            electionBills[i].billNR = i + 1;
 
-        MoveBill();
+            if (electionBills[i].billNR == activeBillNR)
+                electionBills[i].current = true;
+            else
+                electionBills[i].current = false;
+
+        }
 
     }
 
-    private void MoveBill()
+    public virtual void OnBillsChanged()
     {
 
+        Debug.Log("On Bills Changed");
 
+        if (billsDone == electionBills.Length)
+            OpenVictoryScreen();
+        else
+        {
+
+            activeBillNR--;
+            
+            foreach (ElectionBill bill in electionBills)
+            {
+
+                if (bill.billNR == activeBillNR)
+                {
+
+                    bill.current = true;
+
+                }
+                else
+                    bill.current = false;
+
+            }
+
+        }
 
     }
 
@@ -59,7 +94,6 @@ public class FraudHandler : MinigameHandler
     {
 
         base.EndMinigame();
-
 
 
     }
