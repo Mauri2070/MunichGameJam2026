@@ -9,7 +9,7 @@ namespace MGJ.Timer
         public event Action OnTimerEnded;
         public event Action<float> OnTimerTicked;
 
-        public bool Loop { get; private set; }
+        public bool Loop { get; set; }
         public float Time { get; private set; }
         public float CurrentTime { get; private set; }
 
@@ -37,6 +37,7 @@ namespace MGJ.Timer
         public void TickTimer(float deltaTime)
         {
             CurrentTime += deltaTime;
+            OnTimerTicked?.Invoke(TimerProgress);
 
             if (CurrentTime >= Time)
             {
@@ -45,11 +46,10 @@ namespace MGJ.Timer
 
                 if (!Loop)
                 {
+                    TimerManager.Instance.UnregisterTimer(this);
                     return;
                 }
             }
-
-            OnTimerTicked?.Invoke(TimerProgress);
         }
 
         public void SetTimer(float time, bool start = false)
