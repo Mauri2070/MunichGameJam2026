@@ -1,4 +1,5 @@
 using MGJ.Core;
+using MGJ.Supporter;
 using System;
 using UnityEngine;
 
@@ -83,9 +84,12 @@ namespace MGJ.Idle
 
         public void MilestoneCompleted()
         {
+            SupporterManager.Instance.AddSupporter(_activity.Milestones[_currentActivityMilestone].MilestoneSupporter);
+
             // advance milestone
             _currentActivityMilestone++;
             _nextUpgradeInMilestone = 0;
+
             // timer setup
             if (_activity.HasUpgradesLeft(_currentActivityMilestone, _nextUpgradeInMilestone))
             {
