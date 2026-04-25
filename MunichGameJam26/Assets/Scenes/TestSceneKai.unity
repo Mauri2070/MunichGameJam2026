@@ -441,7 +441,7 @@ MonoBehaviour:
   scrollSpeed: 0.5
   obstacle: {fileID: 1142096358}
   placatedObstacle: {fileID: 8462296027611944021, guid: c4f6ba4a61b516646a5688426ee25b49, type: 3}
-  plakatPref: {fileID: -4548755106803856811, guid: 73459b4de3b94324bb58d329a99e7cfd, type: 3}
+  plakatPref: {fileID: 1718305623993538431, guid: 73459b4de3b94324bb58d329a99e7cfd, type: 3}
   obstacleRect: {fileID: 954873333}
   placatedObstacleInstance: {fileID: 0}
   plakateOrigin: {fileID: 320579524}

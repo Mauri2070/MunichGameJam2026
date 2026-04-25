@@ -8,14 +8,14 @@ public class PlakatHandler : MinigameHandler
 
     [Header("Scrolling")]
     RectTransform rectTransform;
-    [SerializeField] Vector3 origin = new Vector3(1920, 0, 0);
+    [SerializeField] Vector3 origin;
     [SerializeField] private float scrollSpeed = 0.5f;
     private bool isScrolling = false;
 
     [Header("Prefabs")]
     [SerializeField] Button obstacle;
     [SerializeField] GameObject placatedObstacle;
-    [SerializeField] Button plakatPref;
+    [SerializeField] Plakat plakatPref;
 
     [Header("Obstacle")]
     [SerializeField] RectTransform obstacleRect;
@@ -24,7 +24,7 @@ public class PlakatHandler : MinigameHandler
     [Header("Plakate")]
     [SerializeField] GameObject plakateOrigin;
     [SerializeField] BoxCollider2D plakatOriginCollider;
-    [SerializeField] Button[] enemyPlakate;
+    [SerializeField] Plakat[] enemyPlakate;
     [SerializeField] float tolerance;
     [SerializeField] Vector2 previousDist;
     [SerializeField] float boundWidth;
@@ -34,6 +34,7 @@ public class PlakatHandler : MinigameHandler
     {
 
         rectTransform = GetComponent<RectTransform>();
+        origin = rectTransform.position;
 
     }
 
@@ -51,14 +52,18 @@ public class PlakatHandler : MinigameHandler
         if(placatedObstacleInstance != null)
             Destroy(placatedObstacleInstance.transform);
 
+        foreach (Transform child in plakateOrigin.transform)
+            Destroy(child.gameObject);
+
+        rectTransform.position = origin;
+
         base.StartMinigame();
 
         plakatOriginCollider = plakateOrigin.GetComponent<BoxCollider2D>();
 
         boundWidth = plakatOriginCollider.size.x;
-        Debug.Log("Width: " + boundWidth);
         boundHeight = plakatOriginCollider.size.y;
-        Debug.Log("Height: " + boundHeight);
+
 
         int plakateNR = Random.Range(4, 6);
 
@@ -73,14 +78,14 @@ public class PlakatHandler : MinigameHandler
     private void SpawnPlakate(int plakateNR)
     {
 
-        enemyPlakate = new Button[plakateNR];
+        enemyPlakate = new Plakat[plakateNR];
 
         for (int i = 0; i < enemyPlakate.Length; i++)
         {
 
             enemyPlakate[i] = plakatPref;
 
-            Button plakatInstance = Instantiate(plakatPref);
+            Plakat plakatInstance = Instantiate(plakatPref);
             plakatInstance.transform.SetParent(plakateOrigin.transform);
 
             plakatInstance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
@@ -139,6 +144,35 @@ public class PlakatHandler : MinigameHandler
 
         if (rectTransform.position.x < 0)
             rectTransform.position = new Vector3(0, rectTransform.position.y, rectTransform.position.z);
+
+        if (rectTransform.position.x == 0)
+        {
+
+            CheckPlakate();
+            isScrolling = false;
+
+        }
+
+    }
+
+    private void CheckPlakate()
+    {
+
+        foreach (Plakat plakat in enemyPlakate)
+        {
+
+            if (!plakat.isGlued)
+            {
+
+                OpenFailedScreen();
+                return;
+
+            }
+
+
+        }
+
+        OpenVictoryScreen();
 
     }
 
