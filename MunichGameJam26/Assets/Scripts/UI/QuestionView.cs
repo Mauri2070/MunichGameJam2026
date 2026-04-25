@@ -13,8 +13,8 @@ namespace MGJ.UI
         [SerializeField] private TextMeshProUGUI _explanationTextComponent;
 
         [Header("Settings")]
-        [SerializeField] private string _explanationWrongPrefix = "<align=center><b>Falsch!</b><align=left>\n\n";
-        [SerializeField] private string _explanationRightPrefix = "<align=center><b>Richtig!</b><align=left>\n\n";
+        [SerializeField] private string _explanationWrongPrefix = "<align=center><b>Aussage Falsch!</b><align=left>\n\n";
+        [SerializeField] private string _explanationRightPrefix = "<align=center><b>Aussage Richtig!</b><align=left>\n\n";
 
         private bool _explanationDisplayed;
 
