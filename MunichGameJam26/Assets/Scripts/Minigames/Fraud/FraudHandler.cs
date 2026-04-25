@@ -27,36 +27,41 @@ public class FraudHandler : MinigameHandler
         billsDone = 0;
         activeBillNR = 4;
 
-        Debug.Log("Create Bill list");
         electionBills = new ElectionBill[4];
-
-        Debug.Log("Filling bills");
 
         for (int i = 0; i < electionBills.Length; i++)
         {
 
-            Debug.Log("Bill " + i);
             electionBills[i] = billPrefab;
-
-
-            Debug.Log("Create Bill");
 
             Vector3 billTransformPosition = new Vector3(billOrigin.transform.position.x + (i * distanceToPrevious), billOrigin.transform.position.y + (i * distanceToPrevious), 0);
 
             ElectionBill billInstance = Instantiate(electionBills[i], billOrigin.transform);
             billInstance.transform.position = billTransformPosition;
 
-            billInstance.CreateBill();
-
             electionBills[i] = billInstance;
             electionBills[i].billNR = i + 1;
 
             if (electionBills[i].billNR == activeBillNR)
+            {
+
                 electionBills[i].current = true;
+                MoveBill(electionBills[i]);
+
+            }
             else
                 electionBills[i].current = false;
 
         }
+
+    }
+
+    private void MoveBill(ElectionBill bill)
+    {
+
+        bill.transform.position = centerPosition.transform.position;
+        bill.CreateBill();
+        bill.current = true;
 
     }
 
@@ -79,6 +84,7 @@ public class FraudHandler : MinigameHandler
                 {
 
                     bill.current = true;
+                    MoveBill(bill);
 
                 }
                 else

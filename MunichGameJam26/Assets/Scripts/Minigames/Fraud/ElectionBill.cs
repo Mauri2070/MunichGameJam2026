@@ -51,12 +51,9 @@ public class ElectionBill : MonoBehaviour
             line = newLine.GetComponent<LineRenderer>();
             line.positionCount = 0;
 
-            Debug.Log("Dragging");
             Vector3 position = Input.mousePosition;
             position.z = 0;
-            Debug.Log("Position: " + position);
             line.positionCount++;
-            Debug.Log("Points: " + line.positionCount);
             line.SetPosition(line.positionCount - 1, position);
 
             //yield return null;
@@ -73,10 +70,8 @@ public class ElectionBill : MonoBehaviour
         current = false;
         wasDrawing = false;
 
-        Debug.Log("Setting vote");
         SetVote();
 
-        Debug.Log("Setting image");
         GetImage();
 
     }
@@ -84,16 +79,11 @@ public class ElectionBill : MonoBehaviour
     private void SetVote()
     {
 
-        Debug.Log("Rolling vote");
-
         int vote = Random.Range(1, parties);
-
-        Debug.Log("Vote NR = " + vote);
 
         if (vote == 1)
         {
 
-            Debug.Log("Vote is for us");
             isUs = true;
 
         }
@@ -103,12 +93,9 @@ public class ElectionBill : MonoBehaviour
     private void GetImage()
     {
 
-        Debug.Log("Rolling image");
-
         if (isUs)
         {
 
-            Debug.Log("Our image");
             int imageNR = Random.Range(0, ourBills.Count);
             billImage.color = new Color(ourBills[imageNR].color.r, ourBills[imageNR].color.g, ourBills[imageNR].color.b);
 
@@ -116,23 +103,21 @@ public class ElectionBill : MonoBehaviour
         else
         {
 
-            Debug.Log("Enemy image");
             int imageNR = Random.Range(0, otherBills.Count);
             billImage.color = new Color(otherBills[imageNR].color.r, otherBills[imageNR].color.g, otherBills[imageNR].color.b);
 
         }
-
-        Debug.Log("New Image color is: " + billImage.color.r + " " + billImage.color.g + " " + billImage.color.b);
 
     }
 
     public void CreateStamp()
     {
 
+        Debug.Log("Create Stamp");
+
         if (current && !wasDrawing)
         {
 
-            Debug.Log("Create Stamp");
             Image stampInstance = Instantiate(stampPrefab);
 
             stampInstance.transform.position = Input.mousePosition;
@@ -143,6 +128,7 @@ public class ElectionBill : MonoBehaviour
             else
             {
 
+                Debug.Log("Stamp");
                 fraudHandler.billsDone++;
                 fraudHandler.OnBillsChanged();
                 StartCoroutine(WaitThenDestroyThis());
@@ -172,7 +158,6 @@ public class ElectionBill : MonoBehaviour
     public void EndDrag()
     {
 
-        Debug.Log("End Drag");
         drag = false;
 
         if (wasDrawing)
@@ -182,7 +167,7 @@ public class ElectionBill : MonoBehaviour
                 fraudHandler.OpenFailedScreen();
             else
             {
-
+                Debug.Log("Drag");
                 fraudHandler.billsDone++;
                 fraudHandler.OnBillsChanged();
                 StartCoroutine(WaitThenDestroyThis());
