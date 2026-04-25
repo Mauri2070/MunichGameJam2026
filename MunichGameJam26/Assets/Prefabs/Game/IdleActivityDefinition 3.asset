@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00911b32756629c4a8a0345215ecbf64, type: 3}
+  m_Name: IdleActivityDefinition 3
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityDefinition
+  ActivityName: TODO 3
+  BaseRessourceGeneration: 3
+  BaseActivityTime: 1
+  FinalActivityTime: 0.5
+  Milestones:
+  - StartUpgradeCost: 10
+    EndUpgradeCost: 10
+    RessourceGenerationBoost: 0.1
+    MilstoneTime: 1
+    MilestoneSupporter: 5
+    UpgradeSteps: 1
+  - StartUpgradeCost: 25
+    EndUpgradeCost: 200
+    RessourceGenerationBoost: 0.15
+    MilstoneTime: 0.5
+    MilestoneSupporter: 46
+    UpgradeSteps: 10
+  ActivityIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
