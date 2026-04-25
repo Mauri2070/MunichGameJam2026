@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -13,9 +14,36 @@ public class FraudHandler : MinigameHandler
     [SerializeField] ElectionBill[] electionBills;
     [SerializeField] private GameObject billOrigin;
     [SerializeField] private ElectionBill billPrefab;
+    [SerializeField] public ElectionBill currentBill;
     [SerializeField] private int distanceToPrevious = 5;
     public int billsDone = 0;
     private int activeBillNR = 4;
+
+    [Header("Timer")]
+    [SerializeField] private Slider timeSlider;
+    [SerializeField] float failTime = 4;
+    [SerializeField] float timeSpent = 0;
+
+    private void Update()
+    {
+
+        if (currentBill != null)
+        {
+
+            timeSpent += Time.deltaTime;
+
+            if (timeSpent >= failTime)
+            {
+
+                currentBill.CheckResult();
+
+            }
+
+            timeSlider.value = Mathf.Clamp((timeSpent / failTime), 0f, 1f);
+
+        }
+
+    }
 
     protected override void StartMinigame()
     {
@@ -26,6 +54,7 @@ public class FraudHandler : MinigameHandler
             GameObject.Destroy(child.gameObject);
         billsDone = 0;
         activeBillNR = 4;
+        timeSpent = 0;
 
         electionBills = new ElectionBill[4];
 
@@ -47,7 +76,8 @@ public class FraudHandler : MinigameHandler
             {
 
                 electionBills[i].current = true;
-                MoveBill(electionBills[i]);
+                currentBill = electionBills[i];
+                MoveBill(currentBill);
 
             }
             else
@@ -63,6 +93,8 @@ public class FraudHandler : MinigameHandler
         bill.transform.position = centerPosition.transform.position;
         bill.CreateBill();
 
+        timeSpent = 0;
+
     }
 
     public virtual void OnBillsChanged()
@@ -71,7 +103,7 @@ public class FraudHandler : MinigameHandler
         Debug.Log("On Bills Changed");
 
         if (billsDone == electionBills.Length)
-            OpenVictoryScreen();
+            mainHandler.OpenVictoryScreen();
         else
         {
 
@@ -86,7 +118,8 @@ public class FraudHandler : MinigameHandler
                 {
 
                     bill.current = true;
-                    MoveBill(bill);
+                    currentBill = bill;
+                    MoveBill(currentBill);
 
                 }
                 else
@@ -105,5 +138,6 @@ public class FraudHandler : MinigameHandler
 
 
     }
+
 
 }

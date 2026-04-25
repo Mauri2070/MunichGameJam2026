@@ -44,7 +44,7 @@ public class Obstacle : MonoBehaviour
         isGlued = true;
 
         plakatHandler.isScrolling = false;
-        plakatHandler.OpenFailedScreen();
+        plakatHandler.mainHandler.OpenFailedScreen();
 
 
     }

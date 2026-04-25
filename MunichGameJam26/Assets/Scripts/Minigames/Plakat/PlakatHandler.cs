@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlakatHandler : MinigameHandler
 {
 
+
     [Header("Scrolling")]
     RectTransform rectTransform;
     [SerializeField] Vector3 origin;
@@ -127,8 +128,6 @@ public class PlakatHandler : MinigameHandler
 
     }
 
-    private float progress;
-    private float acceleration = 0;
 
     private void ScrollBackground()
     {
@@ -166,7 +165,7 @@ public class PlakatHandler : MinigameHandler
             if (!plakat.isGlued || obstacle.isGlued)
             {
 
-                OpenFailedScreen();
+                mainHandler.OpenFailedScreen();
                 return;
 
             }
@@ -176,7 +175,7 @@ public class PlakatHandler : MinigameHandler
 
         obstacle.button.enabled = false;
 
-        OpenVictoryScreen();
+        mainHandler.OpenVictoryScreen();
 
     }
 

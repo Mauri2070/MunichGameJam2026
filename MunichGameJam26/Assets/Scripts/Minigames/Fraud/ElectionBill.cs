@@ -8,7 +8,7 @@ using System.Collections;
 public class ElectionBill : MonoBehaviour
 {
 
-    [SerializeField] FraudHandler fraudHandler;
+    [SerializeField] private FraudHandler fraudHandler;
 
     public bool isUs = false;
     private int parties = 3;
@@ -172,15 +172,27 @@ public class ElectionBill : MonoBehaviour
 
     }
 
+    public void CheckResult()
+    {
+
+        if (wasDrawing && !isUs)
+            StartCoroutine(WaitThenDestroyThis(true));
+        else
+            StartCoroutine(WaitThenDestroyThis(false));
+
+    }
+
     private IEnumerator WaitThenDestroyThis(bool success)
     {
+
+        fraudHandler.currentBill = null;
 
         yield return new WaitForSeconds(0.5f);
 
         if (!success)
         {
 
-            fraudHandler.OpenFailedScreen();
+            fraudHandler.mainHandler.OpenFailedScreen();
 
         }
         else

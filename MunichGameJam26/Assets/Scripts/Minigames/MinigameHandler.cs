@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MinigameHandler : MonoBehaviour
 {
 
+    [SerializeField] public MinigameHandler mainHandler;
     [SerializeField] protected GameObject centerPosition;
 
     [Header("Minigames")]
@@ -34,7 +35,8 @@ public class MinigameHandler : MonoBehaviour
 
     protected virtual void StartMinigame()
     {
-        success = false;
+
+        mainHandler.success = false;
 
     }
 
