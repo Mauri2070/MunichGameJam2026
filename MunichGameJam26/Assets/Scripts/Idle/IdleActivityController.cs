@@ -107,7 +107,7 @@ namespace MGJ.Idle
 
         public void InteractWithActivity()
         {
-            Debug.Log($"Interact with activity {_activity.ActivityName}");
+            //Debug.Log($"Interact with activity {_activity.ActivityName}");
             if (_timer.Loop)
             {
                 return;
@@ -123,7 +123,7 @@ namespace MGJ.Idle
 
         private void Timer_OnTimerEnded()
         {
-            Debug.Log($"Activity {_activity.ActivityName}: OnTimerEnded");
+            //Debug.Log($"Activity {_activity.ActivityName}: OnTimerEnded");
             if (_timer.Loop)
             {
                 MoneyManager.Instance.EarnMoney(_currentActivityOutput);

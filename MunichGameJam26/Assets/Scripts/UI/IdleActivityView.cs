@@ -1,4 +1,5 @@
 using MGJ.Idle;
+using MGJ.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,14 +49,14 @@ namespace MGJ.UI
             // TODO: formatting + €
             if (_targetActivityController.CanBeUpgraded())
             {
-                _upgradeTextComponent.text = _upgradeCostPrefix + _targetActivityController.GetCostForNextUpgrade();
+                _upgradeTextComponent.text = _upgradeCostPrefix + _targetActivityController.GetCostForNextUpgrade().ToEuroString();
             }
             else
             {
                 _upgradeTextComponent.text = _maxedOutString;
             }
 
-            _outputTextComponent.text = _targetActivityController.CurrentActivityOutput.ToString();
+            _outputTextComponent.text = _targetActivityController.CurrentActivityOutput.ToEuroString();
         }
     }
 }

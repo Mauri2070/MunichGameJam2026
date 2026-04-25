@@ -52,7 +52,7 @@ namespace MGJ.Idle
 
             float cost = CalculateUpgadeCost(Milestones[milestone].StartUpgradeCost, Milestones[milestone].EndUpgradeCost,
                 Milestones[milestone].UpgradeSteps, stepInMilestone);
-            Debug.Log($"Upgrade cost for activity {ActivityName} milestone {milestone}, step {stepInMilestone} is {cost}");
+            //Debug.Log($"Upgrade cost for activity {ActivityName} milestone {milestone}, step {stepInMilestone} is {cost}");
             return cost;
         }
 

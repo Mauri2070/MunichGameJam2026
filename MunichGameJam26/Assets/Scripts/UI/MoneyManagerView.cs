@@ -1,4 +1,5 @@
 using MGJ.Core;
+using MGJ.Utility;
 using TMPro;
 using UnityEngine;
 
@@ -20,8 +21,7 @@ namespace MGJ.UI
 
         private void MoneyManager_OnMoneyChanged(float currentMoney)
         {
-            // TODO: formatting, € sign
-            _moneyTextComponent.text = currentMoney.ToString();
+            _moneyTextComponent.text = currentMoney.ToEuroString();
         }
     }
 }
