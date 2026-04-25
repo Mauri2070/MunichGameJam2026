@@ -65,7 +65,7 @@ namespace MGJ.Timer
         public void StartTimer()
         {
             CurrentTime = 0.0f;
-
+            //Debug.Log($"Start Timer: {Time}");
             TimerManager.Instance.RegisterTimer(this);
 
             OnTimerStarted?.Invoke();
