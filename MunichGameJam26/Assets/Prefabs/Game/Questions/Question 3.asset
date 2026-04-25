@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2b7d67a16c6044bc25ac643e2968e, type: 3}
+  m_Name: Question 3
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
+  Question: "Die EU will unser Salzgeb\xE4ck verbieten."
+  IsCorrect: 0
+  Explanation: "Die EU setzt sich f\xFCr eine Ber\xFCcksichtigung der N\xE4hrwerprofile
+    in der Bewerbung von Produkten ein. Dadurch sollen Nahrungsmittel nicht ges\xFCnder
+    erscheinen, als sie tats\xE4chlich sind."

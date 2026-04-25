@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2b7d67a16c6044bc25ac643e2968e, type: 3}
+  m_Name: Question 6
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
+  Question: "EU-Staaten k\xF6nnen ihre B\xFCrger vor Sozialbetrug sch\xFCtzen."
+  IsCorrect: 1
+  Explanation: "EU-Staaten k\xF6nnen selbst \xFCber die Anforderungen zum Erhalt
+    ihrere Sozialleistungen bestimmen. Dadurch kann jedes Land selbst geeignete Ma\xDFnahmen
+    gegen den sogenannten \"Sozialtourismus\" ergreifen."
