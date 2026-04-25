@@ -63,6 +63,8 @@ MonoBehaviour:
   billImage: {fileID: 3723911823052528449}
   stampPrefab: {fileID: 1566465482221133212, guid: a68aff9b5ea1f2f4eb46bcf97a9954d8, type: 3}
   linePrefab: {fileID: 7726555149770558867, guid: 33a01c2fa5b047046b70aace406ca38e, type: 3}
+  newLine: {fileID: 0}
+  line: {fileID: 0}
 --- !u!222 &9182878936441550509
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -84,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9226733, b: 0.06132078, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

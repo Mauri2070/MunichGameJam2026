@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c558170aaa5064241bf07b3be5f827dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  centerPosition: {fileID: 0}
+  centerPosition: {fileID: 1152352178}
   minigameOpener: {fileID: 560006770}
   activeMinigame: {fileID: 0}
   fraudBackground: {fileID: 1529841875}

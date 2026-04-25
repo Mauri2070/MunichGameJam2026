@@ -36,7 +36,7 @@ public class ElectionBill : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    private void Update()
     {
 
         if (drag)
@@ -67,7 +67,6 @@ public class ElectionBill : MonoBehaviour
 
         drag = false;
         isUs = false;
-        current = false;
         wasDrawing = false;
 
         SetVote();
@@ -113,25 +112,21 @@ public class ElectionBill : MonoBehaviour
     public void CreateStamp()
     {
 
-        Debug.Log("Create Stamp");
-
         if (current && !wasDrawing)
         {
 
             Image stampInstance = Instantiate(stampPrefab);
 
             stampInstance.transform.position = Input.mousePosition;
-            stampInstance.transform.parent = this.transform;
+            stampInstance.transform.SetParent(this.transform);
 
             if (!isUs)
-                fraudHandler.OpenFailedScreen();
+                StartCoroutine(WaitThenDestroyThis(false));
             else
             {
 
                 Debug.Log("Stamp");
-                fraudHandler.billsDone++;
-                fraudHandler.OnBillsChanged();
-                StartCoroutine(WaitThenDestroyThis());
+                StartCoroutine(WaitThenDestroyThis(true));
 
             }
 
@@ -164,13 +159,12 @@ public class ElectionBill : MonoBehaviour
         {
 
             if (isUs)
-                fraudHandler.OpenFailedScreen();
+                StartCoroutine(WaitThenDestroyThis(false));
             else
             {
                 Debug.Log("Drag");
-                fraudHandler.billsDone++;
-                fraudHandler.OnBillsChanged();
-                StartCoroutine(WaitThenDestroyThis());
+
+                StartCoroutine(WaitThenDestroyThis(true));
 
             }
 
@@ -178,10 +172,24 @@ public class ElectionBill : MonoBehaviour
 
     }
 
-    private IEnumerator WaitThenDestroyThis()
+    private IEnumerator WaitThenDestroyThis(bool success)
     {
 
         yield return new WaitForSeconds(0.5f);
+
+        if (!success)
+        {
+
+            fraudHandler.OpenFailedScreen();
+
+        }
+        else
+        {
+
+            fraudHandler.billsDone++;
+            fraudHandler.OnBillsChanged();
+
+        }
 
         Destroy(this.gameObject);
 

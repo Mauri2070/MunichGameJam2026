@@ -38,6 +38,7 @@ public class FraudHandler : MinigameHandler
 
             ElectionBill billInstance = Instantiate(electionBills[i], billOrigin.transform);
             billInstance.transform.position = billTransformPosition;
+            billInstance.transform.Rotate(new Vector3(0, 0, Random.Range(-20, 20)));
 
             electionBills[i] = billInstance;
             electionBills[i].billNR = i + 1;
@@ -61,7 +62,6 @@ public class FraudHandler : MinigameHandler
 
         bill.transform.position = centerPosition.transform.position;
         bill.CreateBill();
-        bill.current = true;
 
     }
 
@@ -75,8 +75,10 @@ public class FraudHandler : MinigameHandler
         else
         {
 
+            Debug.Log("Last active number: " + activeBillNR);
             activeBillNR--;
-            
+            Debug.Log("New active number: " + activeBillNR);
+
             foreach (ElectionBill bill in electionBills)
             {
 
