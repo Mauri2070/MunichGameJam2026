@@ -9,7 +9,6 @@ namespace MGJ.UI
     public class TimerCircularView : MonoBehaviour
     {
         [Header("View Targets")]
-        [SerializeField, Tooltip("Will be set to Target Activity Controller Timer if left null.")]
         private Timer.Timer _targetTimer;
         [SerializeField] private IdleActivityController _targetActivityController;
 

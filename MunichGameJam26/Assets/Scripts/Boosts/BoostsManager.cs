@@ -7,6 +7,25 @@ namespace MGJ.Boosts
 {
     public class BoostsManager : MonoBehaviour
     {
+        private static BoostsManager _instance;
+        public static BoostsManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindAnyObjectByType<BoostsManager>();
+                    if (_instance == null)
+                    {
+                        Debug.LogWarning("Could not find Boosts Manager. Creating one.");
+                        GameObject go = new GameObject("Boosts Manager (created).");
+                        _instance = go.AddComponent<BoostsManager>();
+                    }
+                }
+                return _instance;
+            }
+        }
+
         [Header("Multiplier Boost Settings")]
         [SerializeField, Range(30f, 6000f)] private float _multiplierBoostTime = 60f;
         [SerializeField, Range(1f, 10f)] private float _multiplierBoostFactor = 2f;
