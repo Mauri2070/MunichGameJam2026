@@ -23,16 +23,20 @@ public class ElectionBill : MonoBehaviour
 
     [Header("Stamp and Lines")]
     [SerializeField] private Image stampPrefab;
+    [SerializeField] private AudioClip stampSound;
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private GameObject newLine;
     [SerializeField] private LineRenderer line;
+    [SerializeField] private AudioClip scribbleSound;
     private bool wasDrawing = false;
     private bool drag;
 
+    AudioSource audioSource;
     private void Start()
     {
 
         fraudHandler = FindFirstObjectByType<FraudHandler>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 

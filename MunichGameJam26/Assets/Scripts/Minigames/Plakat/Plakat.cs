@@ -13,6 +13,14 @@ public class Plakat : MonoBehaviour
     [Header("Result")]
     public bool isGlued = false;
 
+    [Header("Audio")]
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void GluePlakat()
     {
 
@@ -20,6 +28,8 @@ public class Plakat : MonoBehaviour
         gluedPlakat.transform.Rotate(new Vector3(0, 0, Random.Range(-20, 20)));
         isGlued = true;
         button.enabled = false;
+
+        audioSource.Play();
 
     }
 

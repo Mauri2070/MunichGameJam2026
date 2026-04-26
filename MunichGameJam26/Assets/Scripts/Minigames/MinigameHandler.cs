@@ -18,6 +18,9 @@ public class MinigameHandler : MonoBehaviour
     public bool success = false;
     [SerializeField] private GameObject failedScreen;
     [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip victorySound;
+    [SerializeField] private AudioClip defeatSound;
 
     public void OpenMinigame(GameObject minigameBackground)
     {
@@ -57,6 +60,7 @@ public class MinigameHandler : MonoBehaviour
     {
 
         failedScreen.SetActive(true);
+        audioSource.PlayOneShot(defeatSound);
 
     }
 
@@ -65,6 +69,7 @@ public class MinigameHandler : MonoBehaviour
 
         success = true;
         victoryScreen.SetActive(true);
+        audioSource.PlayOneShot(victorySound);
 
     }
 

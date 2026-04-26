@@ -433,6 +433,9 @@ MonoBehaviour:
   success: 0
   failedScreen: {fileID: 1368428137}
   victoryScreen: {fileID: 1821170002}
+  audioSource: {fileID: 0}
+  victorySound: {fileID: 0}
+  defeatSound: {fileID: 0}
   origin: {x: 1920, y: 0, z: 0}
   maxScrollSpeed: 12
   scrollSpeedStartDuration: 2
@@ -729,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591186864}
   - component: {fileID: 591186865}
+  - component: {fileID: 591186866}
   m_Layer: 5
   m_Name: MinigameHandler
   m_TagString: Untagged
@@ -778,6 +782,106 @@ MonoBehaviour:
   success: 0
   failedScreen: {fileID: 1368428137}
   victoryScreen: {fileID: 1821170002}
+  audioSource: {fileID: 591186866}
+  victorySound: {fileID: 8300000, guid: cecce732841979140806d843d0d780c6, type: 3}
+  defeatSound: {fileID: 8300000, guid: a254e48ef4a205a4088619ff25af4b57, type: 3}
+--- !u!82 &591186866
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591186863}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &600740521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1945,9 @@ MonoBehaviour:
   success: 0
   failedScreen: {fileID: 1368428137}
   victoryScreen: {fileID: 1821170002}
+  audioSource: {fileID: 0}
+  victorySound: {fileID: 0}
+  defeatSound: {fileID: 0}
   electionBills: []
   billOrigin: {fileID: 2045234173}
   billPrefab: {fileID: 240518917196064680, guid: 5dc7b25e9c682744cbf4248f1d0d1644, type: 3}
