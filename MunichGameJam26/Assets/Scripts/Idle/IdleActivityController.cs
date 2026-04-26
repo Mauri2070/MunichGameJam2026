@@ -59,7 +59,7 @@ namespace MGJ.Idle
                 }
                 else
                 {
-                    _currentActivityOutput *= 1 + _activity.Milestones[_currentActivityMilestone].RessourceGenerationBoost;
+                    _currentActivityOutput *= _activity.Milestones[_currentActivityMilestone].RessourceGenerationBoost;
                     _nextUpgradeInMilestone++;
                     OnActivityStateChanged?.Invoke();
                 }

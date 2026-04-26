@@ -12,21 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00911b32756629c4a8a0345215ecbf64, type: 3}
   m_Name: IdleActivityDefinition 3
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityDefinition
-  ActivityName: TODO 3
-  BaseRessourceGeneration: 3
-  BaseActivityTime: 1
+  ActivityName: Lobbyisten bestechen
+  BaseRessourceGeneration: 900
+  BaseActivityTime: 3
   FinalActivityTime: 0.5
   Milestones:
-  - StartUpgradeCost: 10
-    EndUpgradeCost: 10
-    RessourceGenerationBoost: 0.1
-    MilstoneTime: 1
+  - StartUpgradeCost: 1600
+    EndUpgradeCost: 14000
+    RessourceGenerationBoost: 1.12
+    MilstoneTime: 3
+    MilestoneSupporter: 0
+    UpgradeSteps: 5
+  - StartUpgradeCost: 14000
+    EndUpgradeCost: 93000
+    RessourceGenerationBoost: 1.1
+    MilstoneTime: 3
     MilestoneSupporter: 5
-    UpgradeSteps: 1
-  - StartUpgradeCost: 25
-    EndUpgradeCost: 200
-    RessourceGenerationBoost: 0.15
-    MilstoneTime: 0.5
-    MilestoneSupporter: 46
-    UpgradeSteps: 10
-  ActivityIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    UpgradeSteps: 5
+  - StartUpgradeCost: 93000
+    EndUpgradeCost: 145000
+    RessourceGenerationBoost: 1.25
+    MilstoneTime: 2
+    MilestoneSupporter: 10
+    UpgradeSteps: 5
+  - StartUpgradeCost: 145000
+    EndUpgradeCost: 3300000
+    RessourceGenerationBoost: 1.15
+    MilstoneTime: 1
+    MilestoneSupporter: 19
+    UpgradeSteps: 5
+  ActivityIcon: {fileID: 21300000, guid: fca854aa3ace00545b98d8be3873cc61, type: 3}

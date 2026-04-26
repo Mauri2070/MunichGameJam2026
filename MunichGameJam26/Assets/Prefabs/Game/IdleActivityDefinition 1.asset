@@ -12,21 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00911b32756629c4a8a0345215ecbf64, type: 3}
   m_Name: IdleActivityDefinition 1
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityDefinition
-  ActivityName: TODO 1
-  BaseRessourceGeneration: 3
-  BaseActivityTime: 1
-  FinalActivityTime: 0.5
+  ActivityName: Gegener beseitigen
+  BaseRessourceGeneration: 15000
+  BaseActivityTime: 30
+  FinalActivityTime: 22
   Milestones:
-  - StartUpgradeCost: 10
-    EndUpgradeCost: 10
-    RessourceGenerationBoost: 0.1
-    MilstoneTime: 1
+  - StartUpgradeCost: 1100
+    EndUpgradeCost: 10000
+    RessourceGenerationBoost: 1.2
+    MilstoneTime: 30
+    MilestoneSupporter: 0
+    UpgradeSteps: 5
+  - StartUpgradeCost: 10000
+    EndUpgradeCost: 80000
+    RessourceGenerationBoost: 1.15
+    MilstoneTime: 40
     MilestoneSupporter: 5
-    UpgradeSteps: 1
-  - StartUpgradeCost: 25
-    EndUpgradeCost: 200
-    RessourceGenerationBoost: 0.15
-    MilstoneTime: 0.5
-    MilestoneSupporter: 46
-    UpgradeSteps: 10
-  ActivityIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    UpgradeSteps: 5
+  - StartUpgradeCost: 155000
+    EndUpgradeCost: 3700000
+    RessourceGenerationBoost: 1.1
+    MilstoneTime: 35
+    MilestoneSupporter: 19
+    UpgradeSteps: 5
+  - StartUpgradeCost: 3700000
+    EndUpgradeCost: 10000000
+    RessourceGenerationBoost: 1.2
+    MilstoneTime: 29
+    MilestoneSupporter: 24
+    UpgradeSteps: 5
+  ActivityIcon: {fileID: 21300000, guid: 37d9f8ad06cfd4c4ab90cdf1982ff036, type: 3}
