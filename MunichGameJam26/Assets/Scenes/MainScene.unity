@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3659756014731648960, guid: aa9e48d8944bdd749a678af859986339, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1089,6 +1089,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &552073039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2684317247510375598, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
+  m_PrefabInstance: {fileID: 844092977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &555164367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154168572599398370, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
+  m_PrefabInstance: {fileID: 323520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefa8e0f33c88cb498e56addb977ed61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityController
 --- !u!1 &591013632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1207,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432916652f2d8e542986b606ffdb822d, type: 3}
+--- !u!1 &753437091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2840443996372505176, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
+  m_PrefabInstance: {fileID: 844092977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &802946373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1418,7 +1439,9 @@ PrefabInstance:
       value: Minigame Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1694936593112021730, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
+    - {fileID: 2974115576915554059, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
@@ -1918,6 +1941,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1035179791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5288324672608226596, guid: c9dc1fc5fec84d94981c27db7ca91128, type: 3}
+  m_PrefabInstance: {fileID: 844092977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc8070ed8e2fb84b9145a2fe7a15b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!224 &1145564965 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2003067769310517171, guid: b665d4dc38d685d49b6d672be995651f, type: 3}
@@ -2222,6 +2256,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9182204111220693348, guid: 862eef35a8f83204c9d4fcb39fe5b465, type: 3}
   m_PrefabInstance: {fileID: 4158353295335391517}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633997980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154168572599398370, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
+  m_PrefabInstance: {fileID: 1339658024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefa8e0f33c88cb498e56addb977ed61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityController
 --- !u!1 &1649483275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,6 +3120,8 @@ MonoBehaviour:
   _timeWarpDuration: 120
   _activityConrollers:
   - {fileID: 133111318}
+  - {fileID: 1633997980}
+  - {fileID: 555164367}
 --- !u!4 &1962265279
 Transform:
   m_ObjectHideFlags: 0
@@ -3082,6 +3129,55 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962265277}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1999986694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999986696}
+  - component: {fileID: 1999986695}
+  m_Layer: 0
+  m_Name: Minigame Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1999986695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999986694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d897a20abdf60f645a0a0d8908611ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MGJ.Minigames.MinigameManager
+  _minigames:
+  - Handler: {fileID: 1035179791}
+    MinigameBackground: {fileID: 552073039}
+  - Handler: {fileID: 1035179791}
+    MinigameBackground: {fileID: 753437091}
+--- !u!4 &1999986696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999986694}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4272,3 +4368,4 @@ SceneRoots:
   - {fileID: 1962265279}
   - {fileID: 996424623}
   - {fileID: 38420132}
+  - {fileID: 1999986696}

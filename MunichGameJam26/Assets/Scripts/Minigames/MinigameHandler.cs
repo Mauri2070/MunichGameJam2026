@@ -1,9 +1,12 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MinigameHandler : MonoBehaviour
 {
+
+    public event Action<bool> OnMinigameCompleted;
 
     [SerializeField] public MinigameHandler mainHandler;
     [SerializeField] protected GameObject centerPosition;
@@ -57,6 +60,7 @@ public class MinigameHandler : MonoBehaviour
     {
 
         failedScreen.SetActive(true);
+        OnMinigameCompleted?.Invoke(false);
 
     }
 
@@ -65,7 +69,7 @@ public class MinigameHandler : MonoBehaviour
 
         success = true;
         victoryScreen.SetActive(true);
-
+        OnMinigameCompleted?.Invoke(true);
     }
 
     protected virtual void EndMinigame()

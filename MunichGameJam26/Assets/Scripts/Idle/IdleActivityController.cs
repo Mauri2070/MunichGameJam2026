@@ -1,4 +1,5 @@
 using MGJ.Core;
+using MGJ.Minigames;
 using MGJ.Supporter;
 using System;
 using UnityEngine;
@@ -54,9 +55,7 @@ namespace MGJ.Idle
 
                 if (_activity.IsMilestoneUpgrade(_currentActivityMilestone, _nextUpgradeInMilestone))
                 {
-                    // TODO: start mini game
-                    Debug.Log("Skipping mini-game for testing.");
-                    MilestoneCompleted();
+                    MinigameManager.Instance.StartMinigame(this);
                 }
                 else
                 {
