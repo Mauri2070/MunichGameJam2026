@@ -63,11 +63,8 @@ public class MinigameHandler : MonoBehaviour
     {
 
         failedScreen.SetActive(true);
-<<<<<<< HEAD
-        OnMinigameCompleted?.Invoke(false);
-=======
         audioSource.PlayOneShot(defeatSound);
->>>>>>> origin/Audio
+        OnMinigameCompleted?.Invoke(false);
 
     }
 
@@ -76,12 +73,9 @@ public class MinigameHandler : MonoBehaviour
 
         success = true;
         victoryScreen.SetActive(true);
-<<<<<<< HEAD
-        OnMinigameCompleted?.Invoke(true);
-=======
         audioSource.PlayOneShot(victorySound);
 
->>>>>>> origin/Audio
+        OnMinigameCompleted?.Invoke(true);
     }
 
     protected virtual void EndMinigame()
