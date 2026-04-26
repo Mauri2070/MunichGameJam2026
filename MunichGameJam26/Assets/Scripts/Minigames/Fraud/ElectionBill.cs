@@ -4,8 +4,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class ElectionBill : MonoBehaviour
+public class ElectionBill : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IPointerExitHandler, IBeginDragHandler
 {
 
     [SerializeField] private FraudHandler fraudHandler;
@@ -26,39 +27,15 @@ public class ElectionBill : MonoBehaviour
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private GameObject newLine;
     [SerializeField] private LineRenderer line;
+    [SerializeField] private GameObject lineFixPrefab;
     private bool wasDrawing = false;
     private bool drag;
+
 
     private void Start()
     {
 
         fraudHandler = FindFirstObjectByType<FraudHandler>();
-
-    }
-
-    private void Update()
-    {
-
-        if (drag)
-        {
-
-            newLine = Instantiate(linePrefab, this.transform);
-            Vector3 linePosition = Input.mousePosition;
-            linePosition.z = 0;
-            newLine.transform.position = linePosition;
-            newLine.transform.rotation = Quaternion.identity;
-
-            line = newLine.GetComponent<LineRenderer>();
-            line.positionCount = 0;
-
-            Vector3 position = Input.mousePosition;
-            position.z = 0;
-            line.positionCount++;
-            line.SetPosition(line.positionCount - 1, position);
-
-            //yield return null;
-
-        }
 
     }
 
@@ -109,16 +86,15 @@ public class ElectionBill : MonoBehaviour
 
     }
 
-    public void CreateStamp()
+    public void OnPointerClick(PointerEventData eventData)
     {
-
         if (current && !wasDrawing)
         {
 
-            Image stampInstance = Instantiate(stampPrefab);
-
-            stampInstance.transform.position = Input.mousePosition;
-            stampInstance.transform.SetParent(this.transform);
+            Image stampInstance = Instantiate(stampPrefab, transform);
+            //Debug.Log(eventData.position);
+            stampInstance.transform.position = eventData.position;
+            //Debug.DebugBreak();
 
             if (!isUs)
                 StartCoroutine(WaitThenDestroyThis(false));
@@ -133,21 +109,50 @@ public class ElectionBill : MonoBehaviour
             current = false;
 
         }
-
-
     }
 
-    public void BeginDrag()
+    public void OnPointerExit(PointerEventData eventData)
     {
+        EndDrag();
+    }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
         if (current)
         {
 
             drag = true;
             wasDrawing = true;
 
-        }
+            newLine = Instantiate(linePrefab, this.transform);
+            Vector3 linePosition = eventData.position;
+            linePosition.z = 0;
+            newLine.transform.SetPositionAndRotation(linePosition, Quaternion.identity);
+            line = newLine.GetComponent<LineRenderer>();
+            line.positionCount = 1;
+            line.SetPosition(0, newLine.transform.position);
 
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (drag)
+        { 
+            Vector3 position = eventData.position;
+            position.z = -100;
+            line.positionCount++;
+            line.SetPosition(line.positionCount - 1, position);
+
+            GameObject go = Instantiate(lineFixPrefab, transform);
+            go.transform.position = position;
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //Debug.Break();
+        EndDrag();
     }
 
     public void EndDrag()
@@ -189,6 +194,9 @@ public class ElectionBill : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        // Debug
+        //yield return new WaitForSeconds(5f);
+
         if (!success)
         {
 
@@ -206,5 +214,4 @@ public class ElectionBill : MonoBehaviour
         Destroy(this.gameObject);
 
     }
-
 }
