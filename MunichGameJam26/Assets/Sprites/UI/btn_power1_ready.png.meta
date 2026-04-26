@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 98446ca7e4843c04e8197a8def028e20
+guid: 5bcc5829384ee9948a65053d9eb17ee5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3294136396088384064
-    second: Wahloffice_0
+      213: -1093138035386917838
+    second: btn_power1_ready_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wahloffice_0
+      name: btn_power1_ready_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1240
-        height: 698
+        width: 546
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c5677d9660e842d0800000000000000
-      internalID: -3294136396088384064
+      spriteID: 23c5b4e9fb464d0f0800000000000000
+      internalID: -1093138035386917838
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wahloffice_0: -3294136396088384064
+      btn_power1_ready_0: -1093138035386917838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
