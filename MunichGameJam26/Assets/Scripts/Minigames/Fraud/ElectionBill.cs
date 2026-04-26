@@ -24,18 +24,22 @@ public class ElectionBill : MonoBehaviour, IPointerClickHandler, IDragHandler, I
 
     [Header("Stamp and Lines")]
     [SerializeField] private Image stampPrefab;
+    [SerializeField] private AudioClip stampSound;
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private GameObject newLine;
     [SerializeField] private LineRenderer line;
     [SerializeField] private GameObject lineFixPrefab;
+    public AudioClip scribbleSound;
     private bool wasDrawing = false;
     private bool drag;
 
+    AudioSource audioSource;
 
     private void Start()
     {
 
         fraudHandler = FindFirstObjectByType<FraudHandler>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -94,6 +98,7 @@ public class ElectionBill : MonoBehaviour, IPointerClickHandler, IDragHandler, I
             Image stampInstance = Instantiate(stampPrefab, transform);
             //Debug.Log(eventData.position);
             stampInstance.transform.position = eventData.position;
+            audioSource.PlayOneShot(stampSound);
             //Debug.DebugBreak();
 
             if (!isUs)
@@ -131,6 +136,7 @@ public class ElectionBill : MonoBehaviour, IPointerClickHandler, IDragHandler, I
             line = newLine.GetComponent<LineRenderer>();
             line.positionCount = 1;
             line.SetPosition(0, newLine.transform.position);
+            audioSource.PlayOneShot(scribbleSound);
 
         }
     }
@@ -158,6 +164,7 @@ public class ElectionBill : MonoBehaviour, IPointerClickHandler, IDragHandler, I
     public void EndDrag()
     {
 
+        audioSource.Stop();
         drag = false;
 
         if (wasDrawing)

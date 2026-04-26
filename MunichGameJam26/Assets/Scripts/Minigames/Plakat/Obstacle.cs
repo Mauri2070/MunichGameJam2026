@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] Image ungluedPerson;
     [SerializeField] public Button button;
     [SerializeField] public bool isGlued = false;
+
+    [SerializeField] AudioSource screamSource;
+    [SerializeField] AudioSource glueSource;
 
     public void SetObstacle()
     {
@@ -44,8 +48,20 @@ public class Obstacle : MonoBehaviour
         isGlued = true;
 
         plakatHandler.isScrolling = false;
-        plakatHandler.mainHandler.OpenFailedScreen();
 
+        StartCoroutine(WaitThenOpenDefeatScreen());
+
+        screamSource.Play();
+        glueSource.Play();
+
+    }
+
+    private IEnumerator WaitThenOpenDefeatScreen()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        plakatHandler.mainHandler.OpenFailedScreen();
 
     }
 
