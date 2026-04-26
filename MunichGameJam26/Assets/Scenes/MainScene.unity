@@ -3206,18 +3206,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 494328492}
     m_Modifications:
-    - target: {fileID: 1606189905467739473, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
-      propertyPath: m_Color.b
-      value: 0.6392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606189905467739473, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
-      propertyPath: m_Color.g
-      value: 0.47058827
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606189905467739473, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
-      propertyPath: m_Color.r
-      value: 0.53333336
-      objectReference: {fileID: 0}
     - target: {fileID: 2067215788889737180, guid: e8fc46a68c7a87f47b9bcf669b7d8210, type: 3}
       propertyPath: m_fontAsset
       value: 
