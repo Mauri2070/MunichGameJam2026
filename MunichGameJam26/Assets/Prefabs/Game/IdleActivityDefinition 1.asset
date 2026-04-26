@@ -39,6 +39,6 @@ MonoBehaviour:
     EndUpgradeCost: 10000000
     RessourceGenerationBoost: 1.2
     MilstoneTime: 29
-    MilestoneSupporter: 24
+    MilestoneSupporter: 14
     UpgradeSteps: 5
   ActivityIcon: {fileID: 21300000, guid: 37d9f8ad06cfd4c4ab90cdf1982ff036, type: 3}
