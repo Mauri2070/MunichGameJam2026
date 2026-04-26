@@ -34,6 +34,11 @@ public class PlakatHandler : MinigameHandler
     [SerializeField] float boundWidth;
     [SerializeField] float boundHeight;
 
+    [Header("Ambience")]
+    public AudioClip streetAmbience;
+    public AudioClip bureoAmbience;
+    public AudioSource ambienceSource;
+
     private void Awake()
     {
 
@@ -77,6 +82,9 @@ public class PlakatHandler : MinigameHandler
         SpawnPlakate(plakateNR);
 
         obstacle.SetObstacle();
+
+        ambienceSource.clip = streetAmbience;
+        ambienceSource.Play();
 
         StartCoroutine(WaitThenStartScrolling());
 
@@ -127,7 +135,6 @@ public class PlakatHandler : MinigameHandler
         return new Vector2(offsetX, offsetY);
 
     }
-
 
     private void ScrollBackground()
     {
@@ -201,6 +208,15 @@ public class PlakatHandler : MinigameHandler
 
         yield return new WaitForSeconds(0.5f);
         CheckResult();
+
+    }
+
+    protected override void EndMinigame()
+    {
+
+        base.EndMinigame();
+        ambienceSource.clip = bureoAmbience;
+        ambienceSource.Play();
 
     }
 
