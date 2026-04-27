@@ -318,11 +318,11 @@ MonoBehaviour:
   _questionDisplayParent: {fileID: 1508523759}
   _questionTextComponent: {fileID: 489652128}
   _explanationTextComponent: {fileID: 1007936295}
-  _explanationWrongPrefix: '<align=center><b>Falsch!</b><align=left>
+  _explanationWrongPrefix: '<align=center><b>Die Aussage ist Falsch!</b><align=left>
 
 
 '
-  _explanationRightPrefix: '<align=center><b>Richtig!</b><align=left>
+  _explanationRightPrefix: '<align=center><b>Die Aussage ist Richtig!</b><align=left>
 
 
 '

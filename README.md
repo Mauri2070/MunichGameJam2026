@@ -6,6 +6,8 @@ Dieses Repo enthält das Unity Projekt des Games "Democratic Election Idle Tycoo
 
 Das Spiel kombiniert Idle-Elemente mit Minigames und Quizfragen, durch die das Spiel einen "Serious" Aspekt erhält.
 
+Das Spiel kann man auf [itch.io](https://mauri2070.itch.io/democratic-election-idle-tycoon) spielen.
+
 ## Mitwirkende
 
 Das Spiel wurde entwickelt von:
