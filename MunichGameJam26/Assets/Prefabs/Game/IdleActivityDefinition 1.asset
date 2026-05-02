@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00911b32756629c4a8a0345215ecbf64, type: 3}
   m_Name: IdleActivityDefinition 1
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Idle.IdleActivityDefinition
-  ActivityName: Gegener beseitigen
+  ActivityName: Gegner beseitigen
   BaseRessourceGeneration: 15000
   BaseActivityTime: 30
   FinalActivityTime: 22

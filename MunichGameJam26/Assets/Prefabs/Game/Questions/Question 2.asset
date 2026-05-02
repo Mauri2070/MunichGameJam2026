@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
   Question: "Br\xFCssel will die Wasserversorgung durch die Hintert\xFCr liberalisieren."
   IsCorrect: 0
-  Explanation: "Die EU verlangt keine privatisierung der Wasserversorgung. Sie k\xFCmmert
+  Explanation: "Die EU verlangt keine Privatisierung der Wasserversorgung. Sie k\xFCmmert
     sich jedoch um eine gerechte, transparente Regelung sollte sie doch privatisiert
     werden."
