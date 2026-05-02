@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
   Question: "Die EU will unser Salzgeb\xE4ck verbieten."
   IsCorrect: 0
-  Explanation: "Die EU setzt sich f\xFCr eine Ber\xFCcksichtigung der N\xE4hrwerprofile
+  Explanation: "Die EU setzt sich f\xFCr eine Ber\xFCcksichtigung der N\xE4hrwertprofile
     in der Bewerbung von Produkten ein. Dadurch sollen Nahrungsmittel nicht ges\xFCnder
     erscheinen, als sie tats\xE4chlich sind."

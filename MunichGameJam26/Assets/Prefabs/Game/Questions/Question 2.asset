@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d2b7d67a16c6044bc25ac643e2968e, type: 3}
   m_Name: Question 2
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
-  Question: "Br\xFCssel will die Wasserversorgung durch die Hintert\xFCr lieberalisieren."
+  Question: "Br\xFCssel will die Wasserversorgung durch die Hintert\xFCr liberalisieren."
   IsCorrect: 0
   Explanation: "Die EU verlangt keine privatisierung der Wasserversorgung. Sie k\xFCmmert
     sich jedoch um eine gerechte, transparente Regelung sollte sie doch privatisiert

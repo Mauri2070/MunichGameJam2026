@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d2b7d67a16c6044bc25ac643e2968e, type: 3}
   m_Name: Question
   m_EditorClassIdentifier: Assembly-CSharp::MGJ.Questions.QuestionDefinition
-  Question: Die EU willd das Bargeld abschaffen.
+  Question: Die EU will das Bargeld abschaffen.
   IsCorrect: 0
   Explanation: "Niemand will das Bargeld abschaffen. Es gibt lediglich Reformvorschl\xE4ge,
     um die Bargeldnutzung zu vereinfachen (Abschaffung kleiner M\xFCnzen), oder Kriminalit\xE4t
