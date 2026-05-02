@@ -120,8 +120,12 @@ namespace MGJ.Idle
             {
                 MoneyManager.Instance.EarnMoney(_currentActivityOutput);
                 _ressourceCollectionAvailable = false;
+                _timer.StartTimer();
             }
-            _timer.StartTimer();
+            else if (Mathf.Approximately(_timer.TimerProgress, 0.0f)) // avoid restrting activity on accident
+            {
+                _timer.StartTimer();
+            }
         }
 
         private void Timer_OnTimerEnded()
