@@ -772,7 +772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481962938111921129, guid: f6d06c2a824641f4887767bcfc9982d1, type: 3}
       propertyPath: m_text
-      value: "<b>Upgrade: </b>123456 \u20AC"
+      value: "<b>Upgrade: </b>01234567,89 \u20AC"
       objectReference: {fileID: 0}
     - target: {fileID: 481962938111921129, guid: f6d06c2a824641f4887767bcfc9982d1, type: 3}
       propertyPath: m_fontSize
@@ -808,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749482545810212425, guid: f6d06c2a824641f4887767bcfc9982d1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 433
       objectReference: {fileID: 0}
     - target: {fileID: 2749482545810212425, guid: f6d06c2a824641f4887767bcfc9982d1, type: 3}
       propertyPath: m_SizeDelta.y
